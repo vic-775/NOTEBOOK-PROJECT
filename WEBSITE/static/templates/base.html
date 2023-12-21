@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name = "viewport" content = "width=device-width, initial-scale=1" />
+        <title> {%block title %} Home {% endblock %}</title>
+
+    </head>
+    <body>
+        <nav class = "navbar navbar-expand-lg navbar_dark bg_dark">
+            <button class="navbar-toggler" type="button" data-toggler="collapse" data-targets="#navbar">
+                <span class = "navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <div class = "navbar-nav"></div>
+                <a class = "nav-item nav-link" id = "login" href = "/login">Login</a>
+                <a class = "nav-item nav-link" id = "signup" href = "/sign-up">Login</a>
+                <a class = "nav-item nav-link" id = "logout" href = "/logout">Login</a>
+                <a class = "nav-item nav-link" id = "Home" href = "/login">Home</a>
+            </div>
+        </nav> 
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, messages in messages %}
+        {% if catgory == error %}
+        <div class = " alert alert-danger alter-dismissable fade show" role = "alert">
+            {{ messsge }}
+            <button  type = "button" class = "close" data-dismiss="alert">
+                <span aria-hidden = "true">&times;</span>
+            </button>
+        </div>
+        {% else %}
+        <div class = " alert alert-success alter-dismissable fade show" role = "alert">
+            {{ messsge }}
+            <button  type = "button" class = "close" data-dismiss="alert">
+                <span aria-hidden = "true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+        {% endwith %} 
+        <div> class = "container">
+        
+            {%block content %}
+            {% endblock%}
+            
+
+        </div>
+        
+      
+    </body>
+</html>
